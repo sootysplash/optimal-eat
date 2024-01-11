@@ -21,20 +21,10 @@ public class ModMenuOE implements ModMenuApi {
             ConfigCategory handle = builder.getOrCreateCategory(Text.of("Handling"));
             ConfigEntryBuilder cfghandle =  builder.entryBuilder();
 
-
-
             handle.addEntry(cfghandle.startBooleanToggle(Text.of("Enabled"), config.enabled)
                     .setDefaultValue(true)
                     .setTooltip(Text.of("Optimally eat?\nNOTE: With this mod enabled you cannot hold rmb to continually eat food!"))
                     .setSaveConsumer(newValue -> config.enabled = newValue)
-                    .build());
-
-            handle.addEntry(cfghandle.startIntSlider(Text.of("Max food stack size"), config.maxCount, 1, 64)
-                    .setDefaultValue(12)
-                    .setMax(64)
-                    .setMin(1)
-                    .setTooltip(Text.of("Will ONLY optimally eat when under this value."))
-                    .setSaveConsumer(newValue -> config.maxCount = newValue)
                     .build());
 
             return builder.build();

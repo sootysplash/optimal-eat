@@ -20,7 +20,6 @@ public class ConfigOE implements ConfigData {
     private static ConfigOE instance;
 
     public boolean enabled = true;
-    public int maxCount = 12;
 
     public void save() {
         try {

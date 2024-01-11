@@ -22,6 +22,12 @@
 			"me.sootysplash.ModMenuOE"
 		]
 	},
+	"mixins": [
+		{
+			"config": "optimal-eat.client.mixins.json",
+			"environment": "client"
+		}
+	],
 	"depends": {
 		"fabricloader": ">=0.14.0",
 		"minecraft": ">=1.19.2",

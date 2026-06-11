@@ -3,7 +3,7 @@ package me.sootysplash;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 import me.shedaniel.clothconfig2.api.*;
-import net.minecraft.text.Text;
+import net.minecraft.network.chat.Component;
 
 
 public class ModMenuOE implements ModMenuApi {
@@ -15,15 +15,15 @@ public class ModMenuOE implements ModMenuApi {
 
             ConfigBuilder builder = ConfigBuilder.create()
                     .setParentScreen(parent)
-                    .setTitle(Text.of("Config"))
+                    .setTitle(Component.nullToEmpty("Config"))
                     .setSavingRunnable(config::save);
 
-            ConfigCategory handle = builder.getOrCreateCategory(Text.of("Handling"));
+            ConfigCategory handle = builder.getOrCreateCategory(Component.nullToEmpty("Handling"));
             ConfigEntryBuilder cfghandle =  builder.entryBuilder();
 
-            handle.addEntry(cfghandle.startBooleanToggle(Text.of("Enabled"), config.enabled)
+            handle.addEntry(cfghandle.startBooleanToggle(Component.nullToEmpty("Enabled"), config.enabled)
                     .setDefaultValue(true)
-                    .setTooltip(Text.of("Optimally eat?\nNOTE: With this mod enabled you cannot hold rmb to continually eat food!"))
+                    .setTooltip(Component.nullToEmpty("Optimally eat?\nNOTE: With this mod enabled you cannot hold rmb to continually eat food!"))
                     .setSaveConsumer(newValue -> config.enabled = newValue)
                     .build());
 

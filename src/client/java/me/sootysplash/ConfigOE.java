@@ -25,7 +25,7 @@ public class ConfigOE implements ConfigData {
             Files.writeString(file, GSON.toJson(this));
         } catch (IOException e) {
             MainOE.LOGGER.error("OptimalEat could not save the config.");
-            throw new RuntimeException(e);
+            e.printStackTrace(System.err);
         }
     }
 
